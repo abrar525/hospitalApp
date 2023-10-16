@@ -1,0 +1,1 @@
+var hospitalManagementApp = angular.module("hospitalManagementApp", ['ui.router'])

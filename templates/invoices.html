@@ -1,0 +1,179 @@
+<div>
+    <header></header>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-secondary me-s ms-2 mt-2 mb-2" data-bs-toggle="modal"
+        data-bs-target="#exampleModal1">
+        Add New Invoice
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Invoice</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" placeholder="Patients" id="patientName">
+                            <option value="">Select</option>
+                            <option ng-repeat="hospital in invoiceHospitals">
+                                {{hospital.hospital_name}}
+                            </option>
+                        </select>
+                        <label for="patientName">Hospital Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" placeholder="Patients" id="patientName">
+                            <option value="">Select</option>
+                            <option ng-repeat="hospital in invoiceHospitals">
+                                {{hospital.patient_name}}
+                            </option>
+                        </select>
+                        <label for="patientName">Patient Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="appointmentDate" />
+                        <label for="floatingSelect">Invoice Date</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" placeholder="Patients" id="patientName">
+                            <option value="">Select</option>
+                            <option ng-repeat="invoice in invoices">
+                                {{invoice.patient_name}}
+                            </option>
+                        </select>
+                        <label for="patientName">Patient Name</label>
+                    </div>
+                    <div class="itCont d-flex justify-content-around">
+                        <p class="m-0 labelPara">Items</p>
+                        <p class="m-0 labelPara">Quantity</p>
+                        <p class="m-0 labelPara">Price</p>
+                        <p class="m-0 labelPara">Sub Total</p>
+                    </div>
+                    <div class="invoiceCont d-flex flex-column">
+                        <div class="medicinesCont d-flex justify-content-between">
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2"></select>
+                                <label for="floatingSelect">Medicines</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="medicineQuantity"
+                                    aria-label="Floating label select example"></select>
+                                <label for="floatingSelect">Quantity</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="medicinePrice"
+                                    aria-label="Floating label select example"></select>
+                                <label for="floatingSelect">Price</label>
+                            </div>
+                            <div class="labelPara">
+                                <p class="m-0 totalMedAmount">10</p>
+                            </div>
+                        </div>
+
+                        <div class="bedChargesCont d-flex me-2 justify-content-between">
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="bedTypeEl"
+                                    aria-label="Floating label select example"></select>
+                                <label for="floatingSelect">Bed Type</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="bedQuantityEl"
+                                    aria-label="Floating label select example"></select>
+                                <label for="floatingSelect">Quantity</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="BedChargesEl"
+                                    aria-label="Floating label select example">
+                                    <option selected>Open this select menu</option>
+                                </select>
+                                <label for="floatingSelect">Price</label>
+                            </div>
+                            <div class="labelPara">
+                                <p class="m-0 totalBedPrice">10</p>
+                            </div>
+                        </div>
+                        <div class="chargesCont d-flex justify-content-between">
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="treatmentEl"
+                                    aria-label="Floating label select example">
+                                    <option selected>Open this select menu</option>
+                                </select>
+                                <label for="floatingSelect">Treatment Charges</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="treatmentQuantityEl"
+                                    aria-label="Floating label select example"></select>
+                                <label for="floatingSelect">Quantity</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select form-select-2" id="treatmentChargesEl"
+                                    aria-label="Floating label select example">
+                                    <option selected>Open this select menu</option>
+                                </select>
+                                <label for="floatingSelect">Price</label>
+                            </div>
+                            <div class="labelPara">
+                                <p class="m-0 treatPrice">10</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-responsive table-dark table-striped">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Patient Name</th>
+                <th>Hospital Name</th>
+                <th>Invoice Date</th>
+                <th>View Invoice</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="invoice in invoices">
+                <td>{{$index + 1}}</td>
+                <td>{{invoice.patient_name}}</td>
+                <td>{{invoice.hospital_name}}</td>
+                <td>{{invoice.invoice_date}}</td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        View Invoice
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ....
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,74 @@
+<div>
+    <header></header>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-secondary mt-2 mb-2 ms-2" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        Add New Patient
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Patient</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form form-floating mb-3">
+                        <input type="text" class="form-control" />
+                        <label>Patient Name</label>
+                    </div>
+                    <div class="form form-floating">
+                        <input type="text" class="form-control" />
+                        <label>Age</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-3 mt-3">
+                        <div class="d-flex align-items-center me-2">
+                            <input type="radio" name="gender" value="Male" class="form-check-input me-1" />
+                            <label>Male</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <input type="radio" name="gender" value="Male" class="form-check-input me-1" />
+                            <label>Female</label>
+                        </div>
+                    </div>
+                    <div class="form form-floating">
+                        <input type="text" class="form-control" />
+                        <label>Contact</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-responsive table-dark table-striped">
+        <thead>
+            <tr>
+                <th>
+                    S.NO
+                </th>
+                <th>
+                    Patient Name
+                </th>
+                <th>
+                    Age
+                </th>
+                <th>
+                    Gender
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="patient in patients">
+                <td>{{$index + 1}}</td>
+                <td>{{patient.patient_name}}</td>
+                <td>{{patient.age}}</td>
+                <td>{{patient.gender}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

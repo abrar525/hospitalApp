@@ -1,0 +1,39 @@
+<div>
+    <header></header>
+    <div>
+        <table class="table table-bordered table-hover table-responsive table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        S.No
+                    </th>
+                    <th>
+                        Hospital Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Founded Year
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="hospital in hospitals">
+                    <td>
+                        {{$index + 1 }}
+                    </td>
+                    <td>
+                        {{hospital.hospital_name}}
+                    </td>
+                    <td>
+                        {{hospital.address}}
+                    </td>
+                    <td>
+                        {{hospital.founded_year}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

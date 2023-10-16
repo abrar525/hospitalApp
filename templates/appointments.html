@@ -1,0 +1,75 @@
+<div>
+    <header></header>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-secondary mt-2 mb-3 ms-3" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        Add New Appointment
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Appointment</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" placeholder="Patients" id="patientName">
+                            <option value="">Select</option>
+                            <option ng-repeat="appointment in appointments">{{appointment.patient_name}}</option>
+                        </select>
+                        <label for="patientName">Patients</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" placeholder="Patients" id="hospitalName" ng-model="hospitalName"
+                            ng-change="getDoctors()">
+                            <option value="">Select</option>
+                            <option ng-repeat="appointment in appointments" value="{{appointment.hospital_id}}">
+                                {{appointment.hospital_name}}</option>
+                        </select>
+                        <label for="hospitalName">Hospital Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" placeholder="Patients" id="patientName">
+                            <option value="">Select</option>
+                            <option ng-repeat="doctors in doctorsList">{{doctors.doctor_name}}</option>
+                        </select>
+                        <label for="patientName">Patients</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="appointmentDate" />
+                        <label for="floatingSelect">Date&Time</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" />
+                        <label for="floatingSelect">Consultation Fee</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-responsive table-dark table-striped">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Patient Name</th>
+                <th>Doctor Name</th>
+                <th>Appointment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="appointment in appointments">
+                <td>{{$index + 1}}</td>
+                <td>{{appointment.patient_name}}</td>
+                <td>{{appointment.doctor_name}}</td>
+                <td>{{appointment.appointment_date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

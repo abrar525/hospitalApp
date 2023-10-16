@@ -1,0 +1,21 @@
+<div>
+    <header></header>
+    <table class="table table-bordered table-hover table-responsive table-dark table-striped">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Doctor Name</th>
+                <th>Specialization</th>
+                <th>Doctor Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="doctor in doctorsData">
+                <td>{{$index + 1}}</td>
+                <td>{{doctor.doctor_name}}</td>
+                <td>{{doctor.specialization}}</td>
+                <td>{{doctor.doc_id}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

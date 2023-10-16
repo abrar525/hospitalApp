@@ -1,0 +1,46 @@
+<div class="main-container d-flex flex-column justify-content-center align-items-center" id="mainContainer"
+    ng-controller="registerController">
+    <div class="inputsContainer bg-white rounded pe-3 ps-3 pt-2 pb-2 d-flex flex-column align-items-center">
+        <h6 class="text-dark headName">CREATE ACCOUNT</h6>
+        <div class="inpuCont">
+            <label for="userName" class="labelEl">First Name</label>
+            <input type="text" class="form-control inputEl" placeholder="First Name" ng-model="firstName"
+                ng-class="{'is-invalid':firstNameErrMsg}" ng-change="firstNameValidation()" />
+            <p class="m-0 errMsg text-danger mt-1 mb-1" ng-show="firstNameErrMsg">{{firstNameErrMsg}}</p>
+        </div>
+        <div class="inpuCont">
+            <label for="lastName" class="labelEl">Last Name</label>
+            <input type="text" class="form-control inputEl mb-2" placeholder="Last Name" ng-model="lastName"
+                ng-class="{'is-invalid': lastNameErrMsg}" ng-change="lastNameValidation()" />
+            <p class="m-0 errMsg text-danger mt-1 mb-1" ng-show="lastNameErrMsg">{{lastNameErrMsg}}</p>
+        </div>
+        <div class="inpuCont">
+            <label for="email" class="labelEl">Email</label>
+            <input type="text" class="form-control inputEl mb-1" placeholder="Email" ng-model="email"
+                ng-class="{'is-invalid': emailErrMsg}" ng-change="emailValidation()" ng-pattern="/[@]/" />
+            <p class="m-0 errMsg text-danger" ng-show="emailErrMsg">{{emailErrMsg}}</p>
+        </div>
+        <div class="inpuCont mb-2">
+            <label for="password" class="labelEl">Password</label>
+            <input type="password" class="form-control inputEl" placeholder="Password" ng-model="password"
+                ng-class="{'is-invalid': passwordErrMsg}" ng-change="passwordValidation()" />
+            <p class="text-danger errMsg mt-1 mb-1" ng-show="passwordErrMsg">{{passwordErrMsg}}</p>
+        </div>
+        <div class="inpuCont mb-3">
+            <label for="confirmPassword" class="labelEl">Confirm Password</label>
+            <input type="password" class="form-control inputEl" ng-model="confirmPassword"
+                ng-change="confirmPasswordValidation()" ng-class="{'is-invalid': confirmPasswordErrMsg}"
+                placeholder="Confirm Password" />
+            <p class="errMsg text-danger" ng-show="confirmPasswordErrMsg">{{confirmPasswordErrMsg}}</p>
+        </div>
+        <button class="signBtn btn text-light mb-3" ng-click="signUp()">
+            SIGN UP
+        </button>
+        <div class="loginCont">
+            <p class="loginPara">
+                Have already an account ?
+                <a ui-sref="Login" class="loginHere">Login Here</a>
+            </p>
+        </div>
+    </div>
+</div>

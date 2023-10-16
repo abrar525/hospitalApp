@@ -1,0 +1,18 @@
+<div ng-controller="navbarController">
+    <div class="navbarContainer d-flex bg-dark text-light justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="d-flex ms-2">
+                <img src="https://outsourcetopk.com/public/assets/images/portfolio/logo/Hospital-1.jpg"
+                    class="hospitalLogo me-2 rounded-circle" />
+                <h1 class="navbarHead m-0 mt-2">Hospital Management</h1>
+            </div>
+            <ul class="d-flex">
+                <li ng-repeat="tableName in tableNames" class="me-2 mt-3 m-0" ui-sref="{{tableName}}">{{tableName
+                    |uppercase}}</li>
+            </ul>
+        </div>
+        <div>
+            <button class="btn btn-outline-secondary me-2">Logout</button>
+        </div>
+    </div>
+</div>

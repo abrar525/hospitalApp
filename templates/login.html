@@ -1,0 +1,28 @@
+<div class="mainLoginContainer d-flex align-items-center justify-content-center" ng-controller="loginController">
+    <div class="imageContainer">
+        <img src="https://blogimages.softwaresuggest.com/blog/wp-content/uploads/2022/11/28162754/Best-FreeOpen-Source-Hospital-Management-System-01.png"
+            class="loginImage" />
+    </div>
+
+    <div class="loginContainer d-flex flex-column p-2">
+        <h1 class="loginHead text-center">Login</h1>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control inputEl" ng-model="loginEmail" ng-change="validateLoginEmail()"
+                ng-class="{'is-invalid':loginEmailErrMsg}" placeholder="name@example.com" />
+            <label for="floatingInput">Email address</label>
+            <p class="m-0 errMsg mt-1 mb-1 text-danger" ng-show="loginEmailErrMsg">{{loginEmailErrMsg}}</p>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control inputEl" placeholder="Password" ng-model="loginPassword"
+                ng-change="loginPasswordValidation()" ng-class="{'is-invalid': loginPasswordErrMsg}" />
+            <label for="floatingPassword">Password</label>
+            <p class="m-0 errMsg text-danger mt-1" ng-show="loginPasswordErrMsg">{{loginPasswordErrMsg}}</p>
+        </div>
+        <button class="btn loginButton mb-3" ng-click="login()">Login</button>
+        <p class="signUp text-center text-danger">
+            Don't have an account ?
+            <a class="signIn" ui-sref="Register">SIGN UP</a>
+        </p>
+    </div>
+</div>
